@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BookModule } from './books/books.module';
+import { LibraryModule } from './libraries/libraries.module';
 import { NoteController } from './notes/note.controller';
 import { NoteService } from './notes/note.service';
 
@@ -14,7 +15,8 @@ import { NoteService } from './notes/note.service';
   imports: [
     ConfigModule.forRoot({envFilePath: 'variables.env'}),
     MongooseModule.forRoot(process.env.DB),
-    BookModule
+    BookModule,
+    LibraryModule
   ],
   controllers: [AppController, NoteController],
   providers: [AppService, NoteService],
