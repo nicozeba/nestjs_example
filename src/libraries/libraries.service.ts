@@ -18,7 +18,7 @@ export class LibraryService {
   }
 
   async findById(id: string){
-    return this.libraryModel.findById(id);
+    return this.libraryModel.findById(id).populate('books', null, Book.name);
   }
 
   async findByAuthor(authorName: string){
